@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vormid ja nupud HTML keeles</title>
+    <link rel="stylesheet" href="Vormstyle.css">
+    <script src="lugemineScript.js"></script>
+</head>
+<body>
+<h1>IT-erialane küsimustik</h1>
+<form name="ankeet">
+
+    <!--lühiteksti väli-->
+    <label for="nimi">Sisesta oma nimi:</label>
+        <input type="text" name="nimi" id="nimi" placeholder="Eesnimi" >
+    <div id="vastus"></div>
+            <br>
+                <br>
+    <!--rip menüü-->
+    <label for="eriala">Mis eriala sa oled valinud?</label>
+    <select name="eriala" id="eriala">
+        <option value="">vali...</option>
+        <option value="tarkvaraarendaja">Noorem Tarkvararendaja</option>
+        <option value="IT spetsialist">IT spetsialist</option>
+        <option value="rätsep">IT Rätsep</option>
+        <br><br>
+
+
+    </select>
+    <br>
+    <br>
+    <!--numbriväli-->
+    <label for="aastat">Mitu aastat sa plaanid õppida IT erialat</label>
+    <input type="number" name="aastat" id="aastat" min="0" max="6"  oninput="tervitus()">
+<br>
+    <br>
+    <fieldset>
+        <legend>Mis programeerimise keeled sa õpid?</legend>
+        <!--valikud checkbox-mitu valiku mitmest-->
+        <input type="checkbox" name="progeerimine" id="python">
+        <label for="python">Python</label>
+        <br>
+        <input type="checkbox" name="progeerimine" id="C++">
+        <label for="C++">C++</label>
+        <br>
+        <input type="checkbox" name="progeerimine" id="Java">
+        <label for="Java">Java</label>
+        <br>
+        <input type="checkbox" name="progeerimine" id="C#">
+        <label for="C#">C#</label>
+
+        </fieldset>
+    <br><br>
+    <!--raadionupp- üks valik mitmest-->
+    <fieldset>
+        <legend>Mis keeles sa õpid programeerimist:</legend>
+
+        <div>
+            <input type="radio" id="eesti" name="drone" value="eesti" checked />
+            <label for="eesti">eesti</label>
+        </div>
+
+        <div>
+            <input type="radio" id="inglise" name="drone" value="inglise" />
+            <label for="inglise">inglise</label>
+        </div>
+
+        <div>
+            <input type="radio" id="soome" name="drone" value="soome" />
+            <label for="soome">soome</label>
+        </div>
+
+
+        <div>
+            <input type="radio" id="saksa" name="drone" value="saksa" />
+            <label for="saksa">saksa</label>
+        </div>
+    </fieldset>
+
+    <br><br>
+    <label for="info">Kirjuta mida tead IT erialast</label>
+    <br>
+    <textarea name="info" id="info" cols="30" rows="5">
+        vähemalt 20 sõnu
+    </textarea>
+    <br><br>
+
+    <fieldset>
+        <br><br>
+        <input type="color" value="blue" id="lemmikvarv">
+        <label for="lemmikvarv"> lemmikvärv</label>
+    </fieldset>
+<br><br>
+    <fieldset>
+        <br><br>
+        <input type="email" value="email" id="email">
+        <label for="email"> Sisesta oma E-mail</label>
+    </fieldset>
+    <br><br>
+    <fieldset>
+
+        <input type="time" value="time" id="time">
+        <label for="time"> Mis kell sa tavaliselt õppid</label>
+    </fieldset>
+    <br><br>
+    <fieldset>
+
+        <input type="number" value="number" id="number">
+        <label for="number">Telefoninumber</label>
+    </fieldset>
+    <br><br>
+    <fieldset>
+
+        <input type="url" value="url" id="url">
+        <label for="url">Sisesta oma Githubi konto link</label>
+    </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--salvestamine/loobumine nupud-->
+    <input type="reset" value="Loobu" id="loobu">
+    <input type="reset" value="Salvesta" id="salvesta">
+    <!--html5 nupud-->
+    <button type="submit">
+        Sisesta
+    </button>
+
+    <button type="reset">
+        <img src="reset.png" alt="reset nupp">
+    </button>
+
+<!--smh-->
+
+
+</form>
+</body>
+</html>
