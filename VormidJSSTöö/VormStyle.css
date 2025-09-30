@@ -1,0 +1,14 @@
+input[type=text], input[type=number], input[type=color], input[type=url],input[type=time],input[type=email] input[type=date] {
+
+
+    border-bottom: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+   border-top:1px solid lightgrey ;
+    border-right:1px solid lightgrey;
+}
+textarea {
+    border-bottom: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    border-top:1px solid lightgrey ;
+    border-right:1px solid lightgrey;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="vormScript.js"></script>
+</head>
+<body>
+<h2>ÕPILASE REGISTREERIMISVORM</h2>
+<fieldset style="width: 60%;">
+  <legend>Isikuandmed</legend>
+
+  <table border="1" width="50%">
+
+<tr>
+
+  <td>
+    <label for="Eesnimi">Sisesta oma Eesnimi</label>
+  </td>
+
+  <td>
+    <input type="text" placeholder="Eesnimi" id="Eesnimi" oninput="Nimi()">
+  </td>
+
+  <td>
+    <div id="vastus">Vastusekoht</div>
+  </td>
+
+</tr>
+
+    <tr>
+
+      <td>
+        <label for="PereKonnaNimi">Sisesta oma PereKonnaNimi</label>
+      </td>
+
+      <td>
+        <input type="text" placeholder="PereKonnaNimi" id="PereKonnaNimi" oninput="PereKonnaNimi()">
+      </td>
+
+      <td>
+        <div id="vastus1">Vastusekoht</div>
+      </td>
+
+
+
+
+  </table>
+
+  <label for="kuupäev">Sünnikuupäev:</label>
+  <br>
+  <input type="date" name="nimi" id="kuupäev">
+<br><br>
+  <table border="1" width="50%">
+    <tr>
+
+      <td>Mis on su sugu</td>
+      <td>
+        <input type="radio" name="sugu" id="Mees" value="M" onclick="radioValik()">
+        <label for="Mees">Mees</label>
+        <br>
+        <input type="radio" name="sugu" id="Naine" value="N" onclick="radioValik()">
+        <label for="Naine">Naine</label>
+        <br>
+        <input type="radio" name="sugu" id="Muu" value="MU" onclick="radioValik()">
+        <label for="Muu">Muu</label>
+
+      </td>
+      <td>
+        <img src="" id="pilt">
+        <div id="vastus3"></div>
+      </td>
+
+    </tr>
+
+
+
+
+
+  </table>
+
+</fieldset>
+
+<fieldset style="width: 60%;">
+  <legend>Kontakt</legend>
+
+  <table border="1" width="50%">
+
+    <tr>
+
+      <td>
+        <label for="Email">Sisesta oma E-post</label>
+      </td>
+
+      <td>
+        <input type="text" placeholder="Email" id="Email" oninput="Em()">
+      </td>
+
+      <td>
+        <div id="vastus5">Vastusekoht</div>
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>
+        <label for="Telefoninumber">Sisesta oma telefoninumber</label>
+      </td>
+
+      <td>
+        <input type="text" placeholder="Telefoninumber" id="Telefoninumber" oninput="Tel()">
+      </td>
+
+      <td>
+        <div id="vastus6">Vastusekoht</div>
+      </td>
+
+    </tr>
+    <tr>
+
+      <td>
+        <label for="Aadress">Sisesta oma Aadress</label>
+      </td>
+
+      <td>
+        <input type="text" placeholder="Tänav,Maja,Korter" id="Aadress" oninput="Adr()">
+      </td>
+
+      <td>
+        <div id="vastus7">Vastusekoht</div>
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>
+        <label for="Linn">Sisesta mis linnas/asulas elad</label>
+      </td>
+
+      <td>
+        <input type="text" placeholder="Nt Tallinn" id="Linn" oninput="Lin()">
+      </td>
+
+      <td>
+        <div id="vastus8">Vastusekoht</div>
+      </td>
+
+    </tr>
+    <tr>
+
+      <td>
+        <label for="Post">Sisesta oma postiindeks</label>
+      </td>
+
+      <td>
+        <input type="text" placeholder="Nt 10111" id="Post" oninput="Post()">
+      </td>
+
+      <td>
+        <div id="vastus9">Vastusekoht</div>
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>
+        <label>Riik:</label>
+      </td>
+
+      <td>
+        Eesti
+      </td>
+
+
+
+    </tr>
+
+
+  </table>
+
+
+  </fieldset>
+<fieldset style="width: 60%;">
+  <legend>Muu info</legend>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
