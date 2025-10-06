@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Random pilt</title>
+    <script src="randompiltScript.js"></script>
+</head>
+<body onload="juhuslikPilt()">
+<h1>Juhuslik pilt images-kaustast</h1>
+<input type="button" value="Random pilt" onclick="juhuslikPilt()">
+<br>
+<img src="" alt="" id="randomPilt">
+<h2>Pildimõistatus. vali mida sa näed pildil</h2>
+
+<input type="radio" name="valik" id="v1" value="images/üks.png" onchange="piltmyistatus()">
+<label for="v1">üks.png</label>
+<br>
+<input type="radio" name="valik" id="v2" value="images/kaks.png" onchange="piltmyistatus()">
+<label for="v2">kaks.png</label>
+<br>
+<input type="radio" name="valik" id="v3" value="images/kolm.png" onchange="piltmyistatus()">
+<label for="v3">kolm.png</label>
+<br>
+<input type="radio" name="valik" id="v4" value="images/neli.png" onchange="piltmyistatus()">
+<label for="v4">neli.png</label>
+<br>
+<input type="radio" name="valik" id="v5" value="images/viis.png" onchange="piltmyistatus()">
+<label for="v5">viis.png</label>
+<br><br>
+<div id="vastus"></div>
+<h2>Mitu pilti soovid osta?</h2>
+<input type ="number" id="tk" min="1" max="100" step="1" value="1" onchange="piltmyistatus()">
+<label for="tk">Vali kogus</label>
+<br>
+<div id="vastus2"></div>
+</body>
+
+</html>
