@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulatoor</title>
+    <script src="calculator.html"></script>
+</head>
+<body>
+<fieldset>
+<h1>Pood?</h1>
+
+<h2>Vali tegelane</h2>
+
+<input type="radio" name="valik" id="v1" value="images/Napoleon.png" onchange="arvutaPiltHind()">
+<label for="v1">Napoleon Bonaparte</label>
+<br>
+<input type="radio" name="valik" id="v2" value="images/Josephine.png" onchange="arvutaPiltHind()">
+<label for="v2">Josephine Bonaparte</label>
+<br>
+<input type="radio" name="valik" id="v3" value="images/Alexander.png" onchange="arvutaPiltHind()">
+<label for="v3">Alexander the Great</label>
+<br>
+<input type="radio" name="valik" id="v4" value="images/Frederick.png" onchange="arvutaPiltHind()">
+<label for="v4">Frederick the Great</label>
+<br>
+<input type="radio" name="valik" id="v5" value="images/Joan.png" onchange="arvutaPiltHind()">
+<label for="v5">Joan De Arc</label>
+<br><br>
+<div id="vastus"></div>
+<h2>Vali tegelane?</h2>
+
+<input type ="number" id="tk" min="1" max="100" step="1" value="1" onchange="arvutaPiltHind()">
+
+<label for="tk">Vali tegelane</label>
+<button id="1">Tulemus</button>
+<br>
+</fieldset>
+<fieldset>
+<legend>Tulemus!!!!!!</legend>
+
+    <div id="vastus2"></div>
+
+</fieldset>
+
+
+
+</body>
+</html>
