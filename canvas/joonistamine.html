@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Joonistamine canvas elementiga</title>
+    <link rel="stylesheet" href="joonistamineStyle.css">
+    <script src="joonistamineScript.js"></script>
+    <script src="lipp.js"></script>
+    <script src="valgusfloor.js"></script>
+    </head>
+    <body>
+
+
+    <h1>Joonistamine JS-ga</h1>
+
+    <canvas id="tahvel" width="300" height="250"></canvas>
+
+    <br>
+    <input type="button" value="Puhasta" onclick="puhasta()">
+    <br>
+    <input type="button" value="Sirge joon" onclick="sirgeJoon()">
+    <br>
+    <input type="button" value="kolmnurk" onclick="kolmnurk()">
+    <br>
+    <label for="raadius">R:</label>
+    <input type="number" id="raadius" min="0" max="100" value="5" onchange="ring()">
+    <br>
+    <input type="button" value="ring" onclick="ring()">
+    <br>
+    <label for="laius">R:</label>
+    <input type="number" id="laius" min="0" max="100" value="5" onchange="ristkulik()">
+    <br>
+    <label for="korgus">R:</label>
+    <input type="number" id="korgus" min="0" max="100" value="5" onchange="ristkulik()">
+    <input type="button" value="Ristkülik" onclick="ristkulik()">
+    <br>
+    <input type="button" value="picsum pilt" onclick="pilt()">
+    <br>
+    <!--Lipude joonistamine-->
+    <h1>Lipud</h1>
+    <canvas id="lipp" width="330" height="210"></canvas>
+    <br>
+    <input type="button" value="Eesti  lipp" onclick="eestiLipp()">
+    <br>
+    <input type="button" value="Saksamaa lipp" onclick="saksamaaLipp()">
+    <br>
+    <input type="button" value="Prantsuse lipp" onclick="prantsuseLipp()">
+    <br>
+    <input type="button" value="Preisimaa lipp" onclick="preisimaaLipp()">
+    <!--valgusfloor-->
+    <h1>Valgusfloor</h1>
+
+
+    <canvas id="valgusfloor" width="330" height="330"></canvas>
+    <br>
+    <input type="button" value="Ehita valgusfloor" onclick="Floor()">
+    <br>
+    <input type="button" value="Stopp!!" onclick="stopNupp()">
+    <br>
+    <input type="button" value="Oota!" onclick="ootaNupp()">
+    <br>
+    <input type="button" value="Mine" onclick="mineNupp()">
+</body>
+</html>
