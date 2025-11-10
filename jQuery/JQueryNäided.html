@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery näited</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+
+
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function orange(){
+            $('#kirjeldus,h2').css('color', 'orange');
+        }
+        function must(){
+            $('#kirjeldus').css('color', 'black');
+        }
+        function roheline(){
+            $('h2').css('color', 'green');
+        }
+        function koordinaadid(event, ui){
+            let koht=ui.offset;
+            $('#koord').html('x: '+koht.left+'||| y:' +koht.top);
+        }
+        function start(){
+            $('#kirjeldus').mouseenter(orange);
+            $('#kirjeldus').mouseleave(must);
+            $('h2').mouseleave(roheline);
+            $('#pilt').draggable(koordinaadid);
+        }
+        $(document).ready(function(){
+            $("#flip").click(function(){
+                $("#panel").slideToggle("slow");
+            });
+        });
+
+    </script>
+</head>
+<body onload="start()">
+<h2>jQuery</h2>
+<div id="kirjeldus">
+    jQuery on JavaScripti teek, mis on loodud HTML-i DOM-
+    puu läbimise ja manipuleerimise, samuti sündmuste
+    käsitlemise , CSS-animatsioonide ja Ajaxi lihtsustamiseks .
+
+
+</div>
+<input type="button" value="paremale" onclick="$('div#kirjeldus').animate({left:'500px'}, 1000);" />
+<input type="button" value="vasakule" onclick="$('div#kirjeldus').animate({left:'0px'}, 1000);"/>
+<input type="button" value="stop" onclick="$('div#kirjeldus, #pilt ').animate({left:'0px'}, 1000);" />
+<input type="button" value="peida" onclick="$('div#kirjeldus, #pilt ').hide(2000);" />
+<input type="button" value="näida" onclick="$('div#kirjeldus, #pilt ').show(2000, alert('Näitan teksti ja pilt!'));" />
+<div>
+    Jquery CDN
+</div>
+<img src="Napoleon.png" alt="Napoleon" id="pilt">
+<div id="koord"></div>
+
+<div id="flip">Open me</div>
+<div id="panel">Hello world</div>
+</body>
+</html>
