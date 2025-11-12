@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Muusika küstilus</title>
     <script src="MuusikaScript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.viga').hide(); //peidame veateate
+
+            $('.muusikavorm').submit(function(event){
+                let valid = true;
+
+                if($('input[name="ansamble"]:checked').length === 0)
+                {
+                    let valid =true;
+                    $('.viga').show();
+                }else{
+                    $('.viga').hide();
+                }
+
+                if(!valid)
+                {
+                event.preventDefault();
+                }
+            })
+
+
+
+        });
+
+    </script>
+
+
 </head>
 <body>
 <h1>Muusika küsitlus</h1>
 
-<form action="">
+<form>
     <fieldset>
         <legend>   Millised muusikud/ansambleid sa tead?</legend>
 
@@ -27,6 +57,7 @@
 
 
         <div id="Vastus"></div>
+        <span class="viga">Seda välja ei tohi jätta tühjaks</span>
 
     </fieldset>
 
@@ -35,6 +66,7 @@
 
     <input type="text" id="Arvamus" name="Arvamus" onchange="arvamus()">
        <div id="vastus2"></div>
+       <span class="viga">Seda välja ei tohi jätta tühjaks</span>
 
         </fieldset>
 
@@ -50,12 +82,23 @@
     <fieldset>
         <legend>Kas sa kuulad raadiot?</legend>
 
-        <input type="radio"  name="Raadio" id="Jah" value="Jah" onclick="Raadio() ">
-        <label for="Jah">Jah</label>
+        <label>
+        <input type="radio"  name="Vastus" id="Jah" value="Jah" onclick=Raadio();>
+            Jah
+         </label>
+
+        <label>
+        <input type="radio"  name="Vastus" id="Ei" value="Ei" onclick="Raadio()">
+            Ei
+
+
+         </label>
         <div id="vastus4"></div>
-        <input type="radio"  name="Raadio" id="Ei" value="Ei" onclick="Raadio()">
-        <label for="Ei">Ei</label>
-        <div id="vastus5"></div>
+
+
+
+
+
         <br>
 
 
@@ -64,36 +107,60 @@
     <fieldset>
         <legend>Milliseid raadiojaamu oskad nimetada</legend>
 
-        <input type="text" id="Raadio" name="Raadio">
+        <input type="text" id="Nimetamine" name="Nimetamine" oninput="Nimeta()">
 
+        <div id="vastus5"></div>
 
     </fieldset>
 
     <fieldset>
         <legend>Millist muusikad sa kõige rohkem kuulad?</legend>
 
-        <input type="radio"  name="Milline" id="Rokk" value="Milline" >
-        <label for="tund">Rokk</label>
-        <br>
-        <input type="radio"  name="tund" id="Jazz" value="Milline" >
-        <label for="Jazz">Jazz</label>
-        <br>
-        <input type="radio"  name="tund" id="Hip" value="Milline" >
-        <label for="Hip">Hip-Hop</label>
-        <br>
-        <input type="radio"  name="tund" id="Klassika" value="Milline" >
-        <label for="Klassika">Klassika</label>
-        <br>
-        <input type="radio"  name="tund" id="Räpp" value="Milline" >
-        <label for="Räpp">Räpp</label>
-        <br>
-        <input type="radio"  name="tund" id="Bluus" value="Milline" >
-        <label for="Bluus">Bluus</label>
+        <label>
+
+        <input type="radio"  name="Milline" id="Rokk" value="Milline" onclick="Kuula()" >
+            Rokk
+
+         </label>
+
+
+        <label>
+
+        <input type="radio"  name="Milline" id="Jazz" value="Milline" onclick="Kuula()" >
+            Jazz
+
+        </label>
+
+        <label>
+        <input type="radio"  name="Milline" id="Hip" value="Milline" >
+            Hip-Hop
+        </label>
+
+        <label>
+        <input type="radio"  name="Milline" id="Klassika" value="Milline" onclick="Kuula()" >
+            Klassika
+        </label>
+
+        <label>
+        <input type="radio"  name="Milline" id="Rapp" value="Milline" onclick="Kuula()">
+            Räpp
+        </label>
+
+        <label>
+        <input type="radio"  name="Milline" id="Bluus" value="Milline" onclick="Kuula()">
+            Bluus
+        </label>
+
+        <div id="vastus6"></div>
 
 
     </fieldset>
 
+    <br>
+    <button type="button" onclick="Kokkuvotte()">Avalda</button>
+    <button onclick="location.reload()">Puhasta</button>
 
+    <div id="Kokkuvote" style="margin-top:20px; border:1px solid black; padding:10px;"></div>
 </form>
 </body>
 </html>
