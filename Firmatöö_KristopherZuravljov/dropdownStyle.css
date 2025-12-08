@@ -1,0 +1,179 @@
+header, footer{
+
+    font-family: "Rage Italic";
+    font-size: large;
+    width: 100%;
+    background-color: forestgreen;
+    color: black;
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 1%;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    background-color: darkseagreen;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2%;
+
+
+}
+nav a:hover { /*link fookuses*/
+    background-color: grey;
+}
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+
+}
+nav li {
+    float: left;
+    padding: 1%;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 150px;
+    background-color: rgba(0, 128, 0, 0.5);
+
+    z-index: 999;
+    border-radius: 20px;
+    width: 250%;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+
+}
+
+.dropdown li {
+    width: 50%;
+}
+
+
+.dropdown li a {
+    padding: 10px;
+    width: 180%;
+    background-color: rgba(103, 217, 103, 0.5);
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    font-style: italic;
+    font-size: 18px;
+    color: black !important;
+
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+
+}
+
+.dropdown li a:hover {
+    background-color: rgba(0, 128, 0, 0.8);
+    transform: scale(1.1);
+    font-size: 30px;
+}
+
+h2{
+
+    padding: 5%;
+
+
+
+}
+nav li a{
+
+    font-size: large;
+    text-decoration: none;
+    border-right: 2pt solid grey;
+    border-left: 2pt solid grey;
+    border-radius: 120px;
+    padding: 10px;
+    color: black;
+}
+#panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: darkseagreen;
+
+
+    border: solid 1px #c3c3c3;
+}
+
+#panel {
+    padding: 4px;
+    display:block;
+    background-color: rgba(60, 179, 113, 0.5);
+    height:auto;
+
+
+
+}
+div.flex-container {
+    display: flex;
+    /* Show the flex items horizontally */
+    flex-direction: row;
+
+}
+
+div.flex-container > div {
+    margin: 10px;
+    border: solid 1pt grey;
+    border-radius: 10px;
+    padding: 10px;
+    flex: 1;
+}
+
+
+/* Use media query and show the flex items vertically if screen width is less than 600px */
+@media screen and (max-width:600px) {
+    div.flex-container {
+        flex-direction: column;
+    }
+}
+
+div#left
+{
+    border-right: 2pt solid grey;
+    border-left: 2pt solid grey;
+}
+div#right {
+    border-right: 2pt solid grey;
+    border-left: 2pt solid grey;
+
+}
+
+h2#panelleft {
+    text-align: center;
+    width: 10%;
+    font-size: medium;
+}
+img#üks
+{
+    border-radius: 50px;
+    max-width: 200px;
+    border-right: 2pt solid black;
+    border-left: 2pt solid black;
+    border-top: 2pt solid black;
+    border-bottom: 2pt solid black;
+
+}

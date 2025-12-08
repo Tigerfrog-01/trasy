@@ -1,0 +1,20 @@
+#menyykiht {
+    float: left;
+    padding-right: 30px;
+}
+#sisukiht {
+    float: left;
+
+}
+div#jalusekiht {
+    clear: left;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;   border-left:10px;
+
+}
+body{
+    background-color: darkseagreen;
+}
+
+
