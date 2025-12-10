@@ -1,11 +1,65 @@
 #menyykiht {
     float: left;
     padding-right: 30px;
+    background-color: palegreen;
+    color:white;
+    text-align: center;
+
+
+
+
+
+}
+#h2
+{
+    font-size:25px;
+}
+h1
+{
+    color:white;
+}
+ul#menuu
+{
+    list-style-type: none;
+
+}
+
+ul#menuu li
+{
+    display:block;
+    margin-right:15px;
+
+
+}
+
+.menu-button
+{
+    display:block;
+    background-color: limegreen;
+    color:white;
+    padding: 8px 15px;
+   margin-bottom: 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight:bold;
+    transition: background-color 0.3s;
+
+}
+
+.menu-hover
+{
+    background-color: green;
 }
 #sisukiht {
     float: left;
+    background-color: palegreen;
+    border-radius: 10px;
+
+
 
 }
+
+
 div#jalusekiht {
     clear: left;
     margin-top: 20px;
@@ -17,4 +71,58 @@ body{
     background-color: darkseagreen;
 }
 
+img{
+    border-radius: 10px;
+}
+button
+{
+    background-color: limegreen;
 
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    background-color: mediumseagreen;
+    border-radius: 15px;
+    text-align: center;
+    margin: 2%;
+
+
+}
+nav a:hover { /*link fookuses*/
+    background-color: grey;
+}
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+
+}
+nav li {
+    float: left;
+    padding: 1%;
+}
+
+nav li a{
+
+    font-size: large;
+    text-decoration: none;
+    border-right: 2pt solid grey;
+    border-left: 2pt solid grey;
+    border-radius: 120px;
+    padding: 10px;
+    color: black;
+}
+
+h2#uks{
+    text-align: center;
+ 
+}
