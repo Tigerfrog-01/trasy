@@ -1,0 +1,32 @@
+img
+{
+    max-width: 200px;
+    border-radius: 10px;
+}
+table
+{
+    background-color: #6c9a6c;
+    border-radius: 10px;
+}
+body
+{
+    background-color: #5c805c;
+
+
+}
+h1,th,h2
+{
+    color:white;
+}
+table#1
+{
+    background-color: #6c9a6c;
+    border-radius: 10px;
+}
+form#one
+{
+    background-color: #6c9a6c;
+    width: 650px;
+    border-radius: 10px;
+
+}
