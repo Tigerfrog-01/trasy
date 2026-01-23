@@ -1,0 +1,47 @@
+
+
+-- 1. Loo kasutaja
+
+CREATE USER IF NOT EXISTS 'opilaneKristopher'@'localhost'
+
+IDENTIFIED BY '12345';
+
+
+
+-- 2. Loo andmebaas
+
+CREATE DATABASE IF NOT EXISTS Lennujaam
+
+CHARACTER SET utf8mb4
+
+COLLATE utf8mb4_estonian_ci;
+
+
+
+-- 3. Anna õigused kasutajale opilane
+
+GRANT ALL PRIVILEGES ON Lennujaam.* TO 'opilaneKristopher'@'localhost';
+
+FLUSH PRIVILEGES;
+
+
+
+-- 4. Kasuta andmebaasi
+
+USE Lennujaam;
+
+
+
+-- 5. Loo tabel laulud
+
+CREATE TABLE IF NOT EXISTS LennujaamInfo (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ lennu_nr INT DEFAULT 0,
+ kohtade_arv INT DEFAULT 0,
+ reisjate_arv INT DEFAULT 0,
+ ots VARCHAR(100) NOT NULL,
+ siht VARCHAR(100) NOT NULL,
+ valjumisaeg DATETIME,
+ lopetatud BOOLEAN DEFAULT 0,
+ kestvus INT DEFAULT 0
+);
