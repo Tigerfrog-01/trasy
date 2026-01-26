@@ -1,0 +1,33 @@
+  public async Task<ApplicationUser> Register(ApplicationUserDTO userDTO)
+  {
+      var user = new ApplicationUser
+      {
+          UserName = userDTO.Email,
+          Email = userDTO.Email,
+          ProfileType = userDTO.ProfileType,
+          DisplayName = userDTO.DisplayName,
+          EmailConfirmed = false,
+      };
+      var result = await _userManager.CreateAsync(user, userDTO.Password);
+      if (result.Succeeded)
+          return null;
+      {
+          var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+          var encodedToken = Uri.EscapeDataString(token);
+
+          var confirmationLink = $"https://localhost:5001/account/confirmemail?userID={user.Id}&token={Uri.EscapeDataString(token)}";
+
+          var emailDto = new EmailDTO
+          {
+              SendToThisAddress = user.Email,
+              EmailSubject = "Tõesta, et see on sinu email",
+              EmailContent = $"<p>Vajuta <a href='{confirmationLink}'>Siin</a> Selleks, et tõestada see on tõesti sinu ja ainult sinu konto, kui sa ei ole teadlik,et oled teinud konto siis ära klikki, su andmed müüakse muid Hiinase ja Põhja Koreae, aitäh.</p>"
+
+
+
+          };
+          _emailsServices.SendEmail(emailDto);
+
+
+          return user;
+           
