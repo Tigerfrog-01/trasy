@@ -1,87 +1,42 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MailKit.Net.Smtp;
-using System.Threading.Tasks;
-using Filminurk.Core.Domain;
-using Filminurk.Core.dto.AccountDTOs;
-using Filminurk.Core.ServiceInterface;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Identity.Client;
-using MimeKit;
-using Org.BouncyCastle.Asn1.X509;
-using Environment = Filminurk.Data.Enviroment;
-using Microsoft.Extensions.Configuration;
+     [HttpPost]
+     [AllowAnonymous]
+     public async Task<IActionResult> Register(RegisterViewModel model)
+     {
+         if (ModelState.IsValid)
+         {
+             var user = new ApplicationUser()
+             {
+                 UserName = model.Email,
+                 Email = model.Email,
+                 ProfileType = model.ProfileType,
+                 DisplayName = model.DisplayName,
+                 AvatarImageID = Guid.NewGuid().ToString(),
+             };
+             var result = await _userManager.CreateAsync(user, model.Password);
+             if (result.Succeeded)
+             {
+                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
-namespace Filminurk.ApplicationServices.Services
-{
-    public class AccountsServices : IAccountsServices
-    {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IEmailsServices _emailsServices;
-        private readonly IConfiguration _configuration;
+                 var confirmationLink = Url.Action("ConfirmEmail", "Accounts", new { userID = user.Id, token = token }, Request.Scheme);
 
-
-        public AccountsServices(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+                 var emailDto = new EmailDTO
+                 {
+                     SendToThisAddress = user.Email,
+                     EmailSubject = "Tõesta, et see on sinu email",
+                     EmailContent = $"<p>Vajuta <a href='{confirmationLink}'>Siin</a> Selleks, et tõestada see on tõesti sinu ja ainult sinu konto, kui sa ei ole teadlik,et oled teinud konto siis ära klikki, su andmed müüakse muid Hiinase ja Põhja KoreSae, aitäh.</p>"
 
 
-        public AccountsServices(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IEmailsServices emailsServices)
-        {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _emailsServices = emailsServices;
-        }
+                 };
 
-        public async Task<ApplicationUser> Register(ApplicationUserDTO userDTO)
-        {
-            var user = new ApplicationUser
-            {
-                UserName = userDTO.Email,
-                Email = userDTO.Email,
-                ProfileType = userDTO.ProfileType,
-                DisplayName = userDTO.DisplayName,
-            };
-            var result = await _userManager.CreateAsync(user,userDTO.Password);
-            if (result.Succeeded)
-            {
-                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                 _emailsServices.SendEmail(emailDto);
 
-                var email = new MimeMessage();
-                _configuration.GetSection("EmailUserName").Value = Environment.gmailusername;
-                _configuration.GetSection("EmailHost").Value = Environment.smtpaddress;
-                _configuration.GetSection("EmailPassword").Value = Environment.gmailpassword;
 
-                email.From.Add(MailboxAddress.Parse(_configuration.GetSection("EmailUserName").Value));
-                email.To.Add(MailboxAddress.Parse(dto.SendToThisAddress));
-                email.Subject = dto.EmailSubject;
-                var builder = new BodyBuilder
-                {
-                    HtmlBody = dto.EmailContent,
-                };
-                email.Body = builder.ToMessageBody();
-                using var smtp = new SmtpClient();
 
-                smtp.Connect(_configuration.GetSection("EmailHost").Value, 587, MailKit.Security.SecureSocketOptions.StartTls);
-                smtp.Authenticate(_configuration.GetSection("EmailUserName").Value, _configuration.GetSection("EmailPassword").Value);
-                smtp.Send(email);
-                smtp.Disconnect(true);
 
-            }          
-            return user;
-        }
-    
 
-        
-        public async Task<ApplicationUser> Login(LoginDTO userDTO)
-        {
-            var user = await _userManager.FindByEmailAsync(userDTO.Email);
-            return user;
-        }
-    }
+                 //HOMEWORK TASK: koosta email kasutajalt pärineva aadressile saatmiseks, kasutaja saab oma postkastist kätte emaili
+                 //kinnituslingiga, mille jaoks kasutatakse tokenit. siin tuleb välja kutsuda vastav, uus, emaili saatmise meetod, mis saadab
+                 //õige sisuga kirja
+             }
+             //
 
-}
